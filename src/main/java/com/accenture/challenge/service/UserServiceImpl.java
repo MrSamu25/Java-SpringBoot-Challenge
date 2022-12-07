@@ -24,9 +24,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUsers(String id, String username, String email) {
         String path = buildPath(baseUrl.concat(usersUrl), id, username, email);
-        System.out.println(path);
         ResponseEntity<List<User>> responseEntity = restTemplate.exchange(path, HttpMethod.GET, null,
-                new ParameterizedTypeReference<List<User>>() {
+                new ParameterizedTypeReference<>() {
                 });
         return responseEntity.getBody();
     }

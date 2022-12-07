@@ -9,7 +9,6 @@ import java.util.List;
 
 @Component
 public class UserBusinessImpl implements UserBusiness {
-
     @Autowired
     private UserService userService;
 

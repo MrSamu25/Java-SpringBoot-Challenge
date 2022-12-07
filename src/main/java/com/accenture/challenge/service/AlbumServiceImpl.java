@@ -1,6 +1,6 @@
 package com.accenture.challenge.service;
 
-import com.accenture.challenge.model.photo.Photo;
+import com.accenture.challenge.model.album.Album;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
@@ -13,27 +13,27 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @Service
-public class PhotoServiceImpl implements PhotoService {
+public class AlbumServiceImpl implements AlbumService {
     @Value("${url.base}")
     private String baseUrl;
-    @Value("${url.photos}")
-    private String photosUrl;
+    @Value("${url.albums}")
+    private String albumsUrl;
     @Autowired
     private RestTemplate restTemplate;
 
     @Override
-    public List<Photo> getAllPhotos(String albumId, String id, String title) {
-        String path = buildPath(baseUrl.concat(photosUrl), albumId, id, title);
-        ResponseEntity<List<Photo>> responseEntity = restTemplate.exchange(path, HttpMethod.GET, null,
+    public List<Album> getAllAlbums(String userId, String id, String title) {
+        String path = buildPath(baseUrl.concat(albumsUrl), userId, id, title);
+        ResponseEntity<List<Album>> responseEntity = restTemplate.exchange(path, HttpMethod.GET, null,
                 new ParameterizedTypeReference<>() {
                 });
         return responseEntity.getBody();
     }
 
-    private String buildPath(String url, String albumId, String id, String title) {
+    private String buildPath(String url, String userId, String id, String title) {
         String result = url.concat("?");
-        if (null != albumId && StringUtils.hasLength(albumId.trim())) {
-            result = result.concat("albumId=").concat(albumId).concat("&");
+        if (null != userId && StringUtils.hasLength(userId.trim())) {
+            result = result.concat("userId=").concat(userId).concat("&");
         }
 
         if (null != id && StringUtils.hasLength(id.trim())) {
