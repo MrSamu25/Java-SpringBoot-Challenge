@@ -16,7 +16,7 @@ public class PhotoController {
     private PhotoBusiness photoBusiness;
 
     @GetMapping("/photos")
-    public List<Photo> getAllUsers(@RequestParam(required = false) String albumId,
+    public List<Photo> getAllPhotos(@RequestParam(required = false) String albumId,
                                    @RequestParam(required = false) String id,
                                    @RequestParam(required = false) String title) {
         return photoBusiness.getAllPhotos(albumId, id, title);
