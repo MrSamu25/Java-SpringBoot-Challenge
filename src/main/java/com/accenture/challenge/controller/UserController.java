@@ -20,4 +20,11 @@ public class UserController {
                                   @RequestParam(required = false) String email) {
         return userBusiness.getAllUsers(id, username, email);
     }
+
+    @GetMapping("/users-permissions")
+    public List<User> getUsersByPermissions(@RequestParam(required = true) Long albumId,
+                                            @RequestParam(required = true) boolean read,
+                                            @RequestParam(required = true) boolean write) {
+        return userBusiness.getUsersByPermissions(albumId, read, write);
+    }
 }

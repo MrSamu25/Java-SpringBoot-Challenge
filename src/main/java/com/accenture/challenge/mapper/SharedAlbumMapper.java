@@ -6,6 +6,8 @@ import com.accenture.challenge.model.sharedAlbum.SharedAlbumUpdate;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper
 public interface SharedAlbumMapper {
 
@@ -14,6 +16,9 @@ public interface SharedAlbumMapper {
     SharedAlbumEntity sharedAlbumToSharedAlbumEntity(SharedAlbum sharedAlbum);
 
     SharedAlbum sharedAlbumEntityToSharedAlbum(SharedAlbumEntity sharedAlbumEntity);
+
+    List<SharedAlbum> sharedAlbumEntityListToSharedAlbumList(List<SharedAlbumEntity> sharedAlbumEntityList);
+
 
     SharedAlbumEntity sharedAlbumUpdateToSharedAlbumEntity(SharedAlbumUpdate sharedAlbumUpdate);
 

@@ -12,4 +12,6 @@ public interface SharedAlbumRepository extends CrudRepository<SharedAlbumEntity,
     Optional<SharedAlbumEntity> findById(Long id);
 
     SharedAlbumEntity save(SharedAlbumEntity sharedAlbumEntity);
+
+    List<SharedAlbumEntity> findByAlbumIdAndReadAndWrite(Long albumId, boolean read, boolean write);
 }

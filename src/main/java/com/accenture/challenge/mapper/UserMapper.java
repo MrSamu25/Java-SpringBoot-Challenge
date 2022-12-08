@@ -12,4 +12,6 @@ public interface UserMapper {
     UserMapper mapper = Mappers.getMapper(UserMapper.class);
 
     List<UserEntity> userListToUserEntityList(List<User> userList);
+
+    User userEntityToUser(UserEntity userEntity);
 }
