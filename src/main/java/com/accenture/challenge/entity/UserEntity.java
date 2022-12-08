@@ -16,4 +16,8 @@ public class UserEntity {
     private String username;
     @Column(name = "email")
     private String email;
+    @Column(name = "phone")
+    private String phone;
+    @Column(name = "website")
+    private String website;
 }

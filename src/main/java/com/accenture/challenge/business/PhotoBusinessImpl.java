@@ -27,7 +27,7 @@ public class PhotoBusinessImpl implements PhotoBusiness {
         List<Photo> userPhotos = new ArrayList<>();
         List<Album> albums = albumService.getAllAlbums(userId, null, null);
         for (Album album : albums) {
-            userPhotos.addAll(photoService.getAllPhotos(album.getId(), null, null));
+            userPhotos.addAll(photoService.getAllPhotos(String.valueOf(album.getId()), null, null));
         }
         return userPhotos;
     }

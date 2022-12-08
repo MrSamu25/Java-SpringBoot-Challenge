@@ -1,12 +1,12 @@
 package com.accenture.challenge.controller;
 
-import com.accenture.challenge.entity.SharedAlbumEntity;
 import com.accenture.challenge.business.SharedAlbumBusiness;
+import com.accenture.challenge.entity.SharedAlbumEntity;
+import com.accenture.challenge.exception.BusinessException;
+import com.accenture.challenge.model.sharedAlbum.SharedAlbum;
+import com.accenture.challenge.model.sharedAlbum.SharedAlbumUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,8 +22,13 @@ public class SharedAlbumController {
     }
 
     @PostMapping("/sharedAlbums")
-    public SharedAlbumEntity saveSharedAlbum(@RequestBody SharedAlbumEntity sharedAlbumEntity) {
-        return sharedAlbumBusiness.saveSharedAlbum(sharedAlbumEntity);
+    public SharedAlbum saveSharedAlbum(@RequestBody SharedAlbum sharedAlbum) throws BusinessException {
+        return sharedAlbumBusiness.saveSharedAlbum(sharedAlbum);
+    }
+
+    @PutMapping("/sharedAlbums")
+    public SharedAlbumUpdate updateSharedAlbum(@RequestBody SharedAlbumUpdate sharedAlbumUpdate) throws BusinessException {
+        return sharedAlbumBusiness.updateSharedAlbum(sharedAlbumUpdate);
     }
 
 }
