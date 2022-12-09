@@ -20,7 +20,6 @@ public class UserBusinessImpl implements UserBusiness {
     private UserService userService;
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private SharedAlbumRepository sharedAlbumRepository;
 

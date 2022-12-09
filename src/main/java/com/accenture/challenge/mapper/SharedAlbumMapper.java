@@ -19,7 +19,6 @@ public interface SharedAlbumMapper {
 
     List<SharedAlbum> sharedAlbumEntityListToSharedAlbumList(List<SharedAlbumEntity> sharedAlbumEntityList);
 
-
     SharedAlbumEntity sharedAlbumUpdateToSharedAlbumEntity(SharedAlbumUpdate sharedAlbumUpdate);
 
     SharedAlbumUpdate sharedAlbumEntityToSharedAlbumUpdate(SharedAlbumEntity sharedAlbumEntity);

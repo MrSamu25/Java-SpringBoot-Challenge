@@ -38,12 +38,12 @@ public class SharedAlbumBusinessImpl implements SharedAlbumBusiness {
     public SharedAlbumUpdate updateSharedAlbum(SharedAlbumUpdate sharedAlbumUpdate) throws BusinessException {
         validationsBeforeSaveSharedAlbum(sharedAlbumUpdate);
 
-        SharedAlbumEntity sharedAlbumEntity =
-                SharedAlbumMapper.mapper.sharedAlbumUpdateToSharedAlbumEntity(sharedAlbumUpdate);
-
         if (sharedAlbumRepository.findById(sharedAlbumUpdate.getId()).isEmpty()) {
             throw new BusinessException("Shared Album does not exists");
         }
+
+        SharedAlbumEntity sharedAlbumEntity =
+                SharedAlbumMapper.mapper.sharedAlbumUpdateToSharedAlbumEntity(sharedAlbumUpdate);
 
         sharedAlbumEntity = sharedAlbumRepository.save(sharedAlbumEntity);
         return SharedAlbumMapper.mapper.sharedAlbumEntityToSharedAlbumUpdate(sharedAlbumEntity);
@@ -53,8 +53,6 @@ public class SharedAlbumBusinessImpl implements SharedAlbumBusiness {
         if (sharedAlbumAbstract.getUserIdSource().equals(sharedAlbumAbstract.getUserIdDestination())) {
             throw new BusinessException("userIdSource and userIdDestination can not be the same");
         }
-
-
 
         if (albumRepository.findByIdAndUserId(sharedAlbumAbstract.getAlbumId(),
                 sharedAlbumAbstract.getUserIdSource()).isEmpty()) {

@@ -22,7 +22,7 @@ public class SharedAlbumController {
     }
 
     @PostMapping("/sharedAlbums")
-    public SharedAlbum saveSharedAlbum(@RequestBody SharedAlbum sharedAlbum) throws BusinessException {
+    public SharedAlbum saveSharedAlbum(@RequestBody SharedAlbum sharedAlbum) throws BusinessException{
         return sharedAlbumBusiness.saveSharedAlbum(sharedAlbum);
     }
 
